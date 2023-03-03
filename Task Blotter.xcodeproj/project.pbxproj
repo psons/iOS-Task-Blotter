@@ -16,6 +16,10 @@
 		34DEF97129B1765D00F01AA9 /* Task_BlotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF97029B1765D00F01AA9 /* Task_BlotterTests.swift */; };
 		34DEF97B29B1765D00F01AA9 /* Task_BlotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF97A29B1765D00F01AA9 /* Task_BlotterUITests.swift */; };
 		34DEF97D29B1765D00F01AA9 /* Task_BlotterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF97C29B1765D00F01AA9 /* Task_BlotterUITestsLaunchTests.swift */; };
+		34DEF98A29B180CA00F01AA9 /* EffortDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF98929B180CA00F01AA9 /* EffortDomain.swift */; };
+		34DEF98C29B1813D00F01AA9 /* TBUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF98B29B1813D00F01AA9 /* TBUITabBarController.swift */; };
+		34DEF98E29B181C400F01AA9 /* TBUIGoalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF98D29B181C400F01AA9 /* TBUIGoalController.swift */; };
+		34DEF99029B1821400F01AA9 /* TBUIPlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF98F29B1821400F01AA9 /* TBUIPlanController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		34DEF97629B1765D00F01AA9 /* Task BlotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Task BlotterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DEF97A29B1765D00F01AA9 /* Task_BlotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_BlotterUITests.swift; sourceTree = "<group>"; };
 		34DEF97C29B1765D00F01AA9 /* Task_BlotterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_BlotterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		34DEF98929B180CA00F01AA9 /* EffortDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffortDomain.swift; sourceTree = "<group>"; };
+		34DEF98B29B1813D00F01AA9 /* TBUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBUITabBarController.swift; sourceTree = "<group>"; };
+		34DEF98D29B181C400F01AA9 /* TBUIGoalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBUIGoalController.swift; sourceTree = "<group>"; };
+		34DEF98F29B1821400F01AA9 /* TBUIPlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBUIPlanController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,10 @@
 				34DEF95B29B1765900F01AA9 /* SceneDelegate.swift */,
 				34DEF95D29B1765900F01AA9 /* ViewController.swift */,
 				34DEF95F29B1765900F01AA9 /* Main.storyboard */,
+				34DEF98B29B1813D00F01AA9 /* TBUITabBarController.swift */,
+				34DEF98D29B181C400F01AA9 /* TBUIGoalController.swift */,
+				34DEF98F29B1821400F01AA9 /* TBUIPlanController.swift */,
+				34DEF98929B180CA00F01AA9 /* EffortDomain.swift */,
 				34DEF96229B1765C00F01AA9 /* Assets.xcassets */,
 				34DEF96429B1765C00F01AA9 /* LaunchScreen.storyboard */,
 				34DEF96729B1765C00F01AA9 /* Info.plist */,
@@ -260,7 +272,11 @@
 			files = (
 				34DEF95E29B1765900F01AA9 /* ViewController.swift in Sources */,
 				34DEF95A29B1765900F01AA9 /* AppDelegate.swift in Sources */,
+				34DEF98E29B181C400F01AA9 /* TBUIGoalController.swift in Sources */,
+				34DEF98C29B1813D00F01AA9 /* TBUITabBarController.swift in Sources */,
+				34DEF99029B1821400F01AA9 /* TBUIPlanController.swift in Sources */,
 				34DEF95C29B1765900F01AA9 /* SceneDelegate.swift in Sources */,
+				34DEF98A29B180CA00F01AA9 /* EffortDomain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
