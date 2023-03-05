@@ -10,6 +10,7 @@ import UIKit
 // https://developer.apple.com/documentation/uikit/views_and_controls/table_views/configuring_the_cells_for_your_table#3108689
 class TBUIGoalCell: UITableViewCell {
     
+    // these Outlets are needed by the delegate
     @IBOutlet weak var goalNameTextField: UITextField!
     @IBOutlet weak var goalTopObjectivesTextField: UITextField!
     @IBOutlet weak var goalGrip: UIButton!

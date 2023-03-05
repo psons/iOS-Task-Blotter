@@ -28,7 +28,6 @@ class TBUIGoalObjectiveController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     // This will be common to my TabBarController children, so maybe a base class?
     func useParentTBC() -> TBUITabBarController {

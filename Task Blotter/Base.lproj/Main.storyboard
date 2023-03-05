@@ -56,7 +56,7 @@
                                 <rect key="frame" x="16" y="0.0" width="288" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p15-O3-vhd" userLabel="Goals Label">
-                                        <rect key="frame" x="48" y="0.0" width="192" height="40"/>
+                                        <rect key="frame" x="186.5" y="0.0" width="53.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="oQZ-Hd-Wls"/>
                                         </constraints>
@@ -65,10 +65,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRI-la-wpL" userLabel="Add Goal Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1lc-qQ-wL0"/>
-                                            <constraint firstAttribute="width" constant="40" id="bBD-H3-gR8"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="+">
@@ -187,12 +186,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Goal" id="Tpi-FX-lei"/>
                     <connections>
+                        <outlet property="domainNameLabel" destination="RN6-eT-mfd" id="83M-x2-els"/>
                         <outlet property="goalListingTableView" destination="oHI-bN-mOl" id="om2-ZK-RmD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Vh-b0-YhS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="296.25" y="495.42253521126759"/>
+            <point key="canvasLocation" x="563" y="507"/>
         </scene>
         <!--Goal Objectives-->
         <scene sceneID="8fI-az-dGo">
