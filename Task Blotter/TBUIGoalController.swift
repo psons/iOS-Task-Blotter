@@ -1,43 +1,64 @@
 //
-//  TBUIGoalController.swift
-//  Task Blotter Base
+//  TBUIGoalControllerViewController.swift
+//  Task Blotter
 //
-//  Created by Paul Sons on 2/22/23.
+//  Created by Paul Sons on 3/4/23.
 //
 
 import UIKit
-import Intents
-import CoreSpotlight
 
-//import Foundation
-import CoreServices
-//import OrderKit
-
-import UniformTypeIdentifiers
-
-public let newActivityTypeADDObjective = "net.psons.Task-Blotter-Base.add-objective"
-
-class TBUIGoalController: UIViewController {
+class TBUIGoalControllerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var newObjectiveNameTV: UITextField!
-    @IBOutlet weak var newObjectiveMaxTasksTV: UITextField!
-    @IBOutlet weak var storyListingTV: UITextView!
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var goals: [Goal] = []
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
-        // Do any additional setup after loading the view.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.goals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! TBUIGoalCell
+        
+        let goal = self.goals[indexPath.row]
+        
+        cell.goalNameTextField.text = goal.name
+        cell.goalTopObjectivesTextField.text = "Fill in Top Objectives"
+        
+        return cell
     }
     
 
+    
+    @IBOutlet weak var goalListingTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.goals = useEffortDomainAppStateRef().effortDomain.goals
+        print("TBUIGoalControllerViewController.viewDidLoad()")
+        for goal in self.goals {
+            print("\t\(goal.name) has objectives.count: \(goal.objectives.count)")
+        }
+      
+        goalListingTableView.dataSource = self
+        goalListingTableView.delegate = self
+        // Do any additional setup after loading the view.
+    }
+    
+    // This will be common to my TabBarController children, so maybe a base class?
     func useParentTBC() -> TBUITabBarController {
         if let taskBlotterTabBarViewController = tabBarController as? TBUITabBarController {
             return taskBlotterTabBarViewController
         } else {
-            assertionFailure("Error Thic class should be a subclass of TBUITabBarController")
+            assertionFailure("Error This class should be a subclass of TBUITabBarController")
             return TBUITabBarController()
         }
     }
+
+    // This will be common to my TabBarController children, so maybe a base class?
 
     /**
             access the data and application state from the root controller.
@@ -45,76 +66,7 @@ class TBUIGoalController: UIViewController {
     func useEffortDomainAppStateRef() -> EffortDomainAppState {
         return self.useParentTBC().effortDomainAppState
     }
-    
-    // Gets a reference from the parent tabBarController to keep track of user position in the app asneeded for Siri Intens ad NSUserActivities
-//    func useAppState()-> AppState {
-//        return self.useParentTBC().appState
-//    }
 
-    override func viewWillAppear(_ animated: Bool) {
-//        self.storyListingTV.text = useEffortDomainRef().goals[useAppState().currentGSlot].objectiveStrings()
-        self.storyListingTV.text = useEffortDomainAppStateRef().currentGoal.objectiveStrings()
-        self.userActivity = donateAddObjectiveActivity()
-        self.userActivity?.becomeCurrent()
-    }
-    
-    
-    func donateAddObjectiveActivity() -> NSUserActivity {
-        let addObjectiveActivity = NSUserActivity(activityType: newActivityTypeADDObjective)
-        addObjectiveActivity.persistentIdentifier =
-          NSUserActivityPersistentIdentifier(newActivityTypeADDObjective)
-
-        addObjectiveActivity.isEligibleForSearch = true
-        addObjectiveActivity.isEligibleForPrediction = true
-        addObjectiveActivity.title = "Add an Objective"
-        addObjectiveActivity.suggestedInvocationPhrase = "Blotter new Objective"
-
-        // See https://docs.google.com/document/d/1fs4SBer2XYgen4w8QxEg5uWwAG06SSVhimdxR02Kd_s/edit?usp=sharing
-        let attributeSet = CSSearchableItemAttributeSet(contentType: UTType.png )
-        attributeSet.contentDescription = "Goal Pursuit!"
-        attributeSet.thumbnailData = UIImage(named: "logo")?.pngData()
-        //attributeSet.thumbnailData = thumbnail?.jpegData(compressionQuality: 1.0)
-        attributeSet.contentDescription = "An Objective will be achieved with a collection of tasks."
-
-        addObjectiveActivity.contentAttributeSet = attributeSet
-        return addObjectiveActivity
-    }
-    
-    /**
-     todo Programatically add a space for a user to add an Objective
-        Objective needs to be in curently selected Endeavor.
-        For now:
-         - just Default Endeavor
-             - concat the Objective into static text view
-     */
-    
-
-    @IBAction func addNewObjectiveButtonAction(_ sender: UIButton) {
-        if let name: String = self.newObjectiveNameTV.text {
-            if let maxTasksStr: String = self.newObjectiveMaxTasksTV.text {
-                if let maxTasksInt = Int(maxTasksStr) {
-                    print("addNewObjectiveButtonAction: \(name) \(maxTasksInt)")
-                    self.useEffortDomainAppStateRef().currentGoal.addObjective(objective: Objective(name: name, maxTasks: maxTasksInt))
-                    self.storyListingTV.text = self.useEffortDomainAppStateRef().currentGoal.objectiveStrings()
-                } else {
-                    print("addNewObjectiveButtonAction: \(name)")
-                }
-            }
-        }
-    }
-    
-        
-//    func navigateToPlanScreen(_ activity: NSUserActivity?) {
-//        print("navigateToPlanScreen")
-//        let viewController = TBUIPlanController(activity)
-//        navigationController?.popToRootViewController(animated: false)
-//        navigationController?.pushViewController(viewController, animated: true)
-//    }
-    
-    @IBAction func newObjectiveEditAction(_ sender: UIButton) {
-        print("Have Not Implemented newObjectiveEditAction yet.")
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -124,19 +76,7 @@ class TBUIGoalController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+  
 
 }
-
-
-/**
- write an extension of EffortDomain that recieve field obkects from the view controller, knows how to read tem to update the model
- and can useAppState to update self.  The caller should update AppSate as needed and pass it into this extension to update the model.
-
- */
-
-//extension EffortDomain {
-//
-//    func addObjective( at: AppState, nameTF: UITextField, maxTasksTF: UITextField) {
-//
-//    }
-//}

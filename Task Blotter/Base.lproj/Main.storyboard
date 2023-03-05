@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FjK-Ur-tz5">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="ogB-Hk-Afn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="beA-8L-fSA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Vli-zB-fvb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLn-lc-dBH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1153" y="198"/>
+            <point key="canvasLocation" x="1161" y="-568"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jue-bI-Ctu">
@@ -34,6 +34,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="INC-Uw-Gk1" kind="relationship" relationship="viewControllers" id="wnN-Fo-cA0"/>
                         <segue destination="2s9-hI-HPb" kind="relationship" relationship="viewControllers" id="Q0a-4w-BSe"/>
                         <segue destination="OZt-da-WXi" kind="relationship" relationship="viewControllers" id="U3e-0B-Rhz"/>
                         <segue destination="ogB-Hk-Afn" kind="relationship" relationship="viewControllers" id="sOy-gI-xja"/>
@@ -43,28 +44,178 @@
             </objects>
             <point key="canvasLocation" x="471" y="-194"/>
         </scene>
-        <!--Goal-->
+        <!--Goal Listing-->
+        <scene sceneID="b9u-G6-H9H">
+            <objects>
+                <viewController id="INC-Uw-Gk1" userLabel="Goal Listing" customClass="TBUIGoalControllerViewController" customModule="Task_Blotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Fu-pU-nqd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="o9e-Zc-OnL" userLabel="DG Banner View">
+                                <rect key="frame" x="16" y="0.0" width="288" height="96"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p15-O3-vhd" userLabel="Goals Label">
+                                        <rect key="frame" x="48" y="0.0" width="192" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="oQZ-Hd-Wls"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRI-la-wpL" userLabel="Add Goal Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="1lc-qQ-wL0"/>
+                                            <constraint firstAttribute="width" constant="40" id="bBD-H3-gR8"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="+">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZf-GU-rAm" userLabel="maxTasks TextField">
+                                        <rect key="frame" x="248" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="6w3-sm-A7g"/>
+                                            <constraint firstAttribute="width" constant="40" id="qvy-Rf-UvH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Effort Domain name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RN6-eT-mfd" userLabel="Domain Name Label">
+                                        <rect key="frame" x="0.0" y="48" width="288" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="qBd-cW-aeA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="p15-O3-vhd" firstAttribute="leading" secondItem="wRI-la-wpL" secondAttribute="trailing" constant="8" id="4OI-qX-qzL"/>
+                                    <constraint firstItem="wRI-la-wpL" firstAttribute="leading" secondItem="o9e-Zc-OnL" secondAttribute="leading" id="4qg-Ly-Isp"/>
+                                    <constraint firstItem="wRI-la-wpL" firstAttribute="top" secondItem="o9e-Zc-OnL" secondAttribute="top" id="BLK-H6-Usu"/>
+                                    <constraint firstItem="AZf-GU-rAm" firstAttribute="top" secondItem="o9e-Zc-OnL" secondAttribute="top" id="FVI-dv-0CD"/>
+                                    <constraint firstAttribute="trailing" secondItem="AZf-GU-rAm" secondAttribute="trailing" id="HTU-eu-vHR"/>
+                                    <constraint firstAttribute="trailing" secondItem="RN6-eT-mfd" secondAttribute="trailing" id="Kt7-cP-hcq"/>
+                                    <constraint firstItem="RN6-eT-mfd" firstAttribute="top" secondItem="wRI-la-wpL" secondAttribute="bottom" constant="8" id="SD9-uR-z4a"/>
+                                    <constraint firstItem="AZf-GU-rAm" firstAttribute="leading" secondItem="p15-O3-vhd" secondAttribute="trailing" constant="8" id="UaV-4N-Cfc"/>
+                                    <constraint firstAttribute="bottom" secondItem="RN6-eT-mfd" secondAttribute="bottom" constant="8" id="YUA-IL-Lwh"/>
+                                    <constraint firstItem="p15-O3-vhd" firstAttribute="top" secondItem="o9e-Zc-OnL" secondAttribute="top" id="cCT-Q5-IF3"/>
+                                    <constraint firstItem="RN6-eT-mfd" firstAttribute="leading" secondItem="o9e-Zc-OnL" secondAttribute="leading" id="gx0-1M-IEG"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oHI-bN-mOl">
+                                <rect key="frame" x="16" y="96" width="288" height="423"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GoalCell" id="KeW-JY-O57" customClass="TBUIGoalCell" customModule="Task_Blotter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="288" height="160.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KeW-JY-O57" id="3yf-zc-RpX" userLabel="Goal Item View">
+                                            <rect key="frame" x="0.0" y="0.0" width="261.5" height="160.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJl-pB-uvE" userLabel="Drag Grip">
+                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="160.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="160" id="qJG-mt-hvR"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="grip" cornerStyle="dynamic">
+                                                        <backgroundConfiguration key="background">
+                                                            <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                        </backgroundConfiguration>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XaM-ds-RcU">
+                                                    <rect key="frame" x="54" y="0.0" width="207.5" height="160.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Goal Item Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDD-2u-QNy" userLabel="Goal Name">
+                                                            <rect key="frame" x="0.0" y="0.0" width="207.5" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Goal Item Top Objectives" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ts-1m-jsI" userLabel="Goal Top Objectives">
+                                                            <rect key="frame" x="0.0" y="34" width="207.5" height="126.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="WDD-2u-QNy" secondAttribute="trailing" id="CbX-md-T5m"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1ts-1m-jsI" secondAttribute="trailing" id="Sbt-Xz-cwl"/>
+                                                        <constraint firstItem="1ts-1m-jsI" firstAttribute="leading" secondItem="XaM-ds-RcU" secondAttribute="leading" id="ctU-cr-yi4"/>
+                                                        <constraint firstItem="WDD-2u-QNy" firstAttribute="leading" secondItem="XaM-ds-RcU" secondAttribute="leading" id="i1T-M1-SCf"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="uJl-pB-uvE" secondAttribute="bottom" id="0Fj-nj-3hZ"/>
+                                                <constraint firstItem="uJl-pB-uvE" firstAttribute="top" secondItem="3yf-zc-RpX" secondAttribute="top" id="G8l-fi-vYa"/>
+                                                <constraint firstAttribute="bottom" secondItem="XaM-ds-RcU" secondAttribute="bottom" id="KWp-mp-Jy9"/>
+                                                <constraint firstItem="uJl-pB-uvE" firstAttribute="leading" secondItem="3yf-zc-RpX" secondAttribute="leading" id="YLt-D2-X0Z"/>
+                                                <constraint firstAttribute="trailing" secondItem="XaM-ds-RcU" secondAttribute="trailing" id="boj-je-IAk"/>
+                                                <constraint firstItem="XaM-ds-RcU" firstAttribute="top" secondItem="3yf-zc-RpX" secondAttribute="top" id="eZM-w9-5eQ"/>
+                                                <constraint firstItem="XaM-ds-RcU" firstAttribute="leading" secondItem="uJl-pB-uvE" secondAttribute="trailing" id="rgE-GG-aG4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="goalGrip" destination="uJl-pB-uvE" id="acD-wH-8N9"/>
+                                            <outlet property="goalNameTextField" destination="WDD-2u-QNy" id="Iun-0X-DN2"/>
+                                            <outlet property="goalTopObjectivesTextField" destination="1ts-1m-jsI" id="Rmr-JF-UHA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JYp-LF-0W2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o9e-Zc-OnL" firstAttribute="top" secondItem="JYp-LF-0W2" secondAttribute="top" id="3Fn-ZX-90c"/>
+                            <constraint firstItem="JYp-LF-0W2" firstAttribute="trailing" secondItem="o9e-Zc-OnL" secondAttribute="trailing" constant="16" id="6fF-dM-HOn"/>
+                            <constraint firstItem="oHI-bN-mOl" firstAttribute="leading" secondItem="JYp-LF-0W2" secondAttribute="leading" constant="16" id="Esq-Xg-MXW"/>
+                            <constraint firstItem="JYp-LF-0W2" firstAttribute="trailing" secondItem="oHI-bN-mOl" secondAttribute="trailing" constant="16" id="L6E-VK-QHf"/>
+                            <constraint firstItem="oHI-bN-mOl" firstAttribute="top" secondItem="o9e-Zc-OnL" secondAttribute="bottom" id="NbO-ZO-0Xd"/>
+                            <constraint firstItem="oHI-bN-mOl" firstAttribute="bottom" secondItem="JYp-LF-0W2" secondAttribute="bottom" id="Xki-xm-xZg"/>
+                            <constraint firstItem="o9e-Zc-OnL" firstAttribute="leading" secondItem="JYp-LF-0W2" secondAttribute="leading" constant="16" id="wiE-ay-OjS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Goal" id="Tpi-FX-lei"/>
+                    <connections>
+                        <outlet property="goalListingTableView" destination="oHI-bN-mOl" id="om2-ZK-RmD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Vh-b0-YhS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="296.25" y="495.42253521126759"/>
+        </scene>
+        <!--Goal Objectives-->
         <scene sceneID="8fI-az-dGo">
             <objects>
-                <viewController id="2s9-hI-HPb" customClass="TBUIGoalController" customModule="Task_Blotter_Base" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2s9-hI-HPb" userLabel="Goal Objectives" customClass="TBUIGoalObjectiveController" customModule="Task_Blotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KzW-RB-rhO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-7J-0mq" userLabel="Goal Container View">
-                                <rect key="frame" x="16" y="59" width="361" height="300"/>
+                                <rect key="frame" x="16" y="0.0" width="288" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2f1-Xb-Vs5" userLabel="Goal Header View">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb1-XG-JoM">
-                                                <rect key="frame" x="130" y="8" width="116" height="24"/>
+                                                <rect key="frame" x="93.5" y="8" width="116" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0L-fe-Q8b">
-                                                <rect key="frame" x="306" y="8" width="47" height="34"/>
+                                                <rect key="frame" x="233" y="8" width="47" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="okt-90-6lS"/>
                                                 </constraints>
@@ -89,16 +240,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="760" verticalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="MZm-Ui-v26" userLabel="New Objective View">
-                                        <rect key="frame" x="0.0" y="52" width="361" height="98"/>
+                                        <rect key="frame" x="0.0" y="52" width="288" height="98"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maxTasks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odd-M4-hvV">
-                                                <rect key="frame" x="266" y="35" width="78.666666666666686" height="21"/>
+                                                <rect key="frame" x="266" y="35" width="14" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gr-9r-4KY">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Add New Objective"/>
                                                 <connections>
@@ -106,7 +257,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-g6-5W2">
-                                                <rect key="frame" x="7.9999999999999964" y="35" width="49.666666666666657" height="21"/>
+                                                <rect key="frame" x="8" y="35" width="49.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -120,7 +271,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Kg-q7-a1z" userLabel="New Objective maxTasks Entry">
-                                                <rect key="frame" x="266" y="56" width="87" height="34"/>
+                                                <rect key="frame" x="266" y="56" width="14" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -150,7 +301,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="700" text="Story Listing" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4jA-r6-39s" userLabel="Story Listing TV">
-                                        <rect key="frame" x="0.0" y="150" width="361" height="150"/>
+                                        <rect key="frame" x="0.0" y="150" width="288" height="150"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Q7g-Yk-Pne"/>
@@ -175,11 +326,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cQ-nn-14o" userLabel="More Goals View">
-                                <rect key="frame" x="16" y="359" width="361" height="330"/>
+                                <rect key="frame" x="16" y="300" width="288" height="139"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2a-hz-ya0" userLabel="Experimental View">
-                                <rect key="frame" x="16" y="689" width="361" height="80"/>
+                                <rect key="frame" x="16" y="439" width="288" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="zTM-sO-rcZ"/>
@@ -202,7 +353,7 @@
                             <constraint firstItem="V2a-hz-ya0" firstAttribute="trailing" secondItem="KzW-RB-rhO" secondAttribute="trailingMargin" id="tED-gt-m8W"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Goal" id="4u5-Ys-ZzI"/>
+                    <tabBarItem key="tabBarItem" title="G.O." id="4u5-Ys-ZzI"/>
                     <connections>
                         <outlet property="newObjectiveMaxTasksTV" destination="5Kg-q7-a1z" id="Whe-B4-a17"/>
                         <outlet property="newObjectiveNameTV" destination="QjI-of-kKX" id="4VP-jq-XTz"/>
@@ -211,14 +362,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xH3-S1-JUH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1152" y="-553"/>
+            <point key="canvasLocation" x="1937" y="480"/>
         </scene>
         <!--Plan-->
         <scene sceneID="0zP-NE-vtX">
             <objects>
                 <viewController id="OZt-da-WXi" customClass="TBUIPlanController" customModule="Task_Blotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CRa-kf-47g">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YJE-r9-tfq">
@@ -243,6 +394,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
