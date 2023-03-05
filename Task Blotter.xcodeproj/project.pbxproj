@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3488D0BA29B40D4F0009DA87 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488D0B929B40D4F0009DA87 /* ModelData.swift */; };
 		34DEF95A29B1765900F01AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF95929B1765900F01AA9 /* AppDelegate.swift */; };
 		34DEF95C29B1765900F01AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF95B29B1765900F01AA9 /* SceneDelegate.swift */; };
 		34DEF95E29B1765900F01AA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF95D29B1765900F01AA9 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3488D0B929B40D4F0009DA87 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		34DEF95629B1765900F01AA9 /* Task Blotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Blotter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DEF95929B1765900F01AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34DEF95B29B1765900F01AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				34DEF96229B1765C00F01AA9 /* Assets.xcassets */,
 				34DEF96429B1765C00F01AA9 /* LaunchScreen.storyboard */,
 				34DEF96729B1765C00F01AA9 /* Info.plist */,
+				3488D0B929B40D4F0009DA87 /* ModelData.swift */,
 			);
 			path = "Task Blotter";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				34DEF95E29B1765900F01AA9 /* ViewController.swift in Sources */,
 				34DEF99229B18E4F00F01AA9 /* TBAppIntents.swift in Sources */,
+				3488D0BA29B40D4F0009DA87 /* ModelData.swift in Sources */,
 				34DEF95A29B1765900F01AA9 /* AppDelegate.swift in Sources */,
 				34DEF98E29B181C400F01AA9 /* TBUIGoalController.swift in Sources */,
 				34DEF98C29B1813D00F01AA9 /* TBUITabBarController.swift in Sources */,

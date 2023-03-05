@@ -9,23 +9,24 @@ import UIKit
 
 class TBUITabBarController: UITabBarController {
     
-    var effortDomain = EffortDomain(name: "Should read the user data for EffortDomain Name")
-    var appState = AppState()
+    // combine thes two into an EffortDomainAppState()
+//    var effortDomain = EffortDomain(name: "Should read the user data for EffortDomain Name")
+//    var appState = AppState()
+    var effortDomainAppState = dummyDataEffortDomainAppState
+    // EffortDomainAppState(effortDomain: EffortDomain(name: "Should read the user data for EffortDomain Name"))
+    
+//    override init(effortDomain: EffortDomain = EffortDomain(name: "Should read the user data for EffortDomain Name"), appState: AppState = AppState(), effortDomainAppState: EffortDomainAppState) {
+//        self.effortDomain = effortDomain
+//        self.appState = appState
+////        self.effortDomainAppState = effortDomainAppState
+//    }
     
     override func viewDidLoad() {
+        print("TBUITabBarController.viewDidLoad()")
         super.viewDidLoad()
-        self.intializeEffortDomainDefaults()
+        // self.intializeEffortDomainDefaults()  will need to load some data here at some point.
     }
     
-    
-    func intializeEffortDomainDefaults() {
-
-        let defaultEndeavor = Endeavor(name: "default")
-        self.effortDomain.addEndeavor(endeavor: defaultEndeavor)
-        
-        let tempObjective = Objective(name: "temp objective to replace with user input")
-        self.effortDomain.endeavors[0].addObjective(objective: tempObjective)
-    }
     
 
     /*

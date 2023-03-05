@@ -38,21 +38,22 @@ class TBUIGoalController: UIViewController {
             return TBUITabBarController()
         }
     }
+
     /**
-     makes sure effortDomainRef is initialized because it has to be declared optional since it references the parent taskBlotterTabBarViewControlle
-     r
+            access the data and application state from the root controller.
      */
-    func useEffortDomainRef() -> EffortDomain {
-        return self.useParentTBC().effortDomain
+    func useEffortDomainAppStateRef() -> EffortDomainAppState {
+        return self.useParentTBC().effortDomainAppState
     }
     
     // Gets a reference from the parent tabBarController to keep track of user position in the app asneeded for Siri Intens ad NSUserActivities
-    func useAppState()-> AppState {
-        return self.useParentTBC().appState
-    }
+//    func useAppState()-> AppState {
+//        return self.useParentTBC().appState
+//    }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.storyListingTV.text = useEffortDomainRef().endeavors[useAppState().currentESlot].objectiveStrings()
+//        self.storyListingTV.text = useEffortDomainRef().goals[useAppState().currentGSlot].objectiveStrings()
+        self.storyListingTV.text = useEffortDomainAppStateRef().currentGoal.objectiveStrings()
         self.userActivity = donateAddObjectiveActivity()
         self.userActivity?.becomeCurrent()
     }
@@ -93,10 +94,8 @@ class TBUIGoalController: UIViewController {
             if let maxTasksStr: String = self.newObjectiveMaxTasksTV.text {
                 if let maxTasksInt = Int(maxTasksStr) {
                     print("addNewObjectiveButtonAction: \(name) \(maxTasksInt)")
-                    let efDomain = self.useEffortDomainRef()
-                    let eSlot = self.useAppState().currentESlot
-                    efDomain.endeavors[eSlot].addObjective(objective: Objective(name: name, maxTasks: maxTasksInt))
-                    self.storyListingTV.text = efDomain.endeavors[eSlot].objectiveStrings()
+                    self.useEffortDomainAppStateRef().currentGoal.addObjective(objective: Objective(name: name, maxTasks: maxTasksInt))
+                    self.storyListingTV.text = self.useEffortDomainAppStateRef().currentGoal.objectiveStrings()
                 } else {
                     print("addNewObjectiveButtonAction: \(name)")
                 }
