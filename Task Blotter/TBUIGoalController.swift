@@ -79,11 +79,11 @@ extension TBUIGoalControllerViewController: UITableViewDataSource, UITableViewDe
         
         let goal = self.goals[indexPath.row]
         
-        cell.goalNameTextField.text = goal.name
+        cell.goalNameLabel.text = goal.name
         let objectivesAsStr = prefixAsLines(upTo: 4, ofStringList: getNames(objectives: goal.objectives))
         print(objectivesAsStr)
         print("")
-        cell.goalTopObjectivesTextField.text = objectivesAsStr
+        cell.objectiveSummary.text = objectivesAsStr
         cell.goalGrip.titleLabel?.text = String(indexPath.row + 1) // adjust index to user counting from 1
         
         return cell

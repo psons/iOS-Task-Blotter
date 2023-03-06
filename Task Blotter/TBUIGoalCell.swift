@@ -11,8 +11,8 @@ import UIKit
 class TBUIGoalCell: UITableViewCell {
     
     // these Outlets are needed by the delegate
-    @IBOutlet weak var goalNameTextField: UITextField!
-    @IBOutlet weak var goalTopObjectivesTextField: UITextField!
+    @IBOutlet weak var goalNameLabel: UILabel!
+    @IBOutlet weak var objectiveSummary: UILabel!
     @IBOutlet weak var goalGrip: UIButton!
     
     
