@@ -19,6 +19,8 @@ public let newActivityTypeADDObjective = "net.psons.Task-Blotter-Base.add-object
 
 class TBUIGoalObjectiveController: UIViewController {
     
+    var localGoal = Goal(name: "UNKNOWN")
+    
     @IBOutlet weak var newObjectiveNameTV: UITextField!
     @IBOutlet weak var newObjectiveMaxTasksTV: UITextField!
     @IBOutlet weak var storyListingTV: UITextView!
@@ -55,7 +57,10 @@ class TBUIGoalObjectiveController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
 //        self.storyListingTV.text = useEffortDomainRef().goals[useAppState().currentGSlot].objectiveStrings()
-        self.storyListingTV.text = useEffortDomainAppStateRef().currentGoal.objectiveStrings()
+
+        // todo calling controller should set AppState "currentGSlot" and "currentOSlot"
+        //        self.storyListingTV.text = useEffortDomainAppStateRef().currentGoal.objectiveStrings()
+        self.storyListingTV.text = self.localGoal.name
         self.userActivity = donateAddObjectiveActivity()
         self.userActivity?.becomeCurrent()
     }

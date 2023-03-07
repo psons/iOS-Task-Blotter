@@ -7,8 +7,9 @@
 
 import UIKit
 
-class TBUIGoalControllerViewController: UIViewController  {
+class TBUIGoalControllerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+    @IBOutlet weak var goalListingTableview: UITableView!
     var goals: [Goal] = []
         
     @IBOutlet weak var goalListingTableView: UITableView!
@@ -22,8 +23,8 @@ class TBUIGoalControllerViewController: UIViewController  {
         for goal in self.goals {
             print("\t\(goal.name) has objectives.count: \(goal.objectives.count)")
         }
-        goalListingTableView.dataSource = self
         goalListingTableView.delegate = self
+        goalListingTableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,22 +51,26 @@ class TBUIGoalControllerViewController: UIViewController  {
     }
 
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let detail = segue.destination as? TBUIGoalObjectiveController {
+            if let indexPath = self.goalListingTableview.indexPathForSelectedRow {
+                let goal = goals[indexPath.row]
+                detail.localGoal = goal
+            }
+        }
     }
-    */
     
   
 
 }
 
 // extensions for protocols needed to support TableView
-extension TBUIGoalControllerViewController: UITableViewDataSource, UITableViewDelegate {
+extension TBUIGoalControllerViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -88,6 +93,12 @@ extension TBUIGoalControllerViewController: UITableViewDataSource, UITableViewDe
         
         return cell
     }
+
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowGoalDetail", sender: self)
+        }
+
     
     /*
      ellipsis behavior of things that are string convertable
@@ -117,3 +128,13 @@ extension TBUIGoalControllerViewController: UITableViewDataSource, UITableViewDe
     }
     
 }
+
+//extension TBUIGoalControllerViewController {
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+////    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // Method does not override any method from its superclass
+////        <#code#>
+////    }
+//}
