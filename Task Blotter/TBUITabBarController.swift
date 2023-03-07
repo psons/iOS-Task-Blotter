@@ -9,18 +9,8 @@ import UIKit
 
 class TBUITabBarController: UITabBarController {
     var navTarget: String = "none"
-    // combine thes two into an EffortDomainAppState()
-//    var effortDomain = EffortDomain(name: "Should read the user data for EffortDomain Name")
-//    var appState = AppState()
     var effortDomainAppState = dummyDataEffortDomainAppState
-    // EffortDomainAppState(effortDomain: EffortDomain(name: "Should read the user data for EffortDomain Name"))
-    
-//    override init(effortDomain: EffortDomain = EffortDomain(name: "Should read the user data for EffortDomain Name"), appState: AppState = AppState(), effortDomainAppState: EffortDomainAppState) {
-//        self.effortDomain = effortDomain
-//        self.appState = appState
-////        self.effortDomainAppState = effortDomainAppState
-//    }
-    
+        
     override func viewDidLoad() {
         print("TBUITabBarController.viewDidLoad()")        
         super.viewDidLoad()
@@ -57,13 +47,8 @@ class TBUITabBarController: UITabBarController {
     // MARK: - Navigation
      */
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("in TBUITabBarController prepare for segue. self.navTarget: \(self.navTarget)")
             }
-//    override func restoreUserActivityState(_ activity: NSUserActivity) {
-//        print("TBUITabBarController.restoreUserActivityState()")
-//        print("\t customize prepare(for segue... to pass in the activity: NSUserActivity ")
-//    }
 
 }

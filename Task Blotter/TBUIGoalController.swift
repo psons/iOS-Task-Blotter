@@ -20,9 +20,6 @@ class TBUIGoalControllerViewController: UIViewController, UITableViewDataSource,
         super.viewDidLoad()
         self.goals = useEffortDomainAppStateRef().effortDomain.goals
         print("TBUIGoalControllerViewController.viewDidLoad()")
-        for goal in self.goals {
-            print("\t\(goal.name) has objectives.count: \(goal.objectives.count)")
-        }
         goalListingTableView.delegate = self
         goalListingTableView.dataSource = self
     }

@@ -19,19 +19,11 @@ struct StartTaskBlotterIntent: AppIntent {
     @MainActor
     func perform() async throws -> some IntentResult {
         print("StartTaskBlotterIntent.perform()")
-        // What do I do here to control navigation to a tab in the tabbar controller?
-        // UIApplication.share
-//        UIApplication.
-        // UIApplication.shared.windows.first?.rootViewController.
         // downcast to my custom tabbar.
         // set index on tab bar controller.
-        
-        // 'windows' was deprecated in iOS 15.0: Use UIWindowScene.windows on a relevant window scene instead
-        //let tbc = UIApplication.shared.windows.first?.rootViewController as! TBUITabBarController
-//        let tbc = UIApplication.shared.
-//        let tbc = UIWindowScene.  .windows.first as! TBUITabBarController // .root //.first?.rootViewController as! TBUITabBarController
-        //UIApplication.shared.windows.first?.rootViewController. // setView
-        let tbc = UIApplication.shared.windows.first?.rootViewController as! TBUITabBarController
+        // .first because the Tab Bar controller is the first scene
+        let tbc = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.keyWindow?.rootViewController as! TBUITabBarController
+
         tbc.selectedIndex = 2
         // .tabBarController.selectedIndex = 1
         
@@ -56,6 +48,9 @@ struct AddObjectiveIntent: AppIntent {
     
 }
 
+/**
+ 
+ */
 struct ViewDefaultGoalIntent: AppIntent {   // go to the goal via nav controller so i have contect
                                         // and prove I can go past the tab bar inexes
     static var title: LocalizedStringResource = "View the Default Goal"
@@ -68,7 +63,6 @@ struct ViewDefaultGoalIntent: AppIntent {   // go to the goal via nav controller
     func perform() async throws -> some IntentResult {
         print("ViewDefaultGoalIntent invoked")
         let tbc = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.keyWindow?.rootViewController as! TBUITabBarController
-//        let tbc = UIApplication.shared.windows.first?.rootViewController as! TBUITabBarController
         tbc.setNavigation(navTarget: "GoalDetail")
         tbc.doNavigation()
         
