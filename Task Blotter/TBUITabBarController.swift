@@ -15,6 +15,23 @@ class TBUITabBarController: UITabBarController {
         print("TBUITabBarController.viewDidLoad()")        
         super.viewDidLoad()
         // self.intializeEffortDomainDefaults()  will need to load some data here at some point.
+        
+       // firt time test
+//        DomainStore.save(domain: dummyDataEffortDomainAppState.effortDomain) { result in
+//            if case .failure(let error) = result {
+//                fatalError(error.localizedDescription)
+//            }
+//        }
+       DomainStore.load { result in
+           switch result {
+           case .failure(let error):
+               fatalError(error.localizedDescription)
+           case .success(let domainData):
+               self.effortDomainAppState.effortDomain = domainData
+           }
+       }
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

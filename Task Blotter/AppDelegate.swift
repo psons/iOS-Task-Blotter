@@ -15,9 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("AppDelegate.application(_ application: UIApplication, didFinishLaunchingWithOption")
-        // Override point for customization after application launch.
-        print(UIApplication.shared)
+        /*
+        Override point for customization after application launch.
+         This was from investigating with R Panchal to show that the
+         UIApplication object available here is the same one available in the
+         AppIntent Perform method
+         print(UIApplication.shared)
+         */
 
+        
         return true
     }
 
