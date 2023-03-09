@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34405BCB29B964760015EA28 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34405BCA29B964760015EA28 /* DataState.swift */; };
 		3488D0BA29B40D4F0009DA87 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488D0B929B40D4F0009DA87 /* ModelData.swift */; };
 		3488D0BE29B449D80009DA87 /* TBUIGoalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488D0BD29B449D80009DA87 /* TBUIGoalController.swift */; };
 		3488D0C029B45F5A0009DA87 /* TBUIGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488D0BF29B45F5A0009DA87 /* TBUIGoalCell.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34405BCA29B964760015EA28 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
 		3488D0B929B40D4F0009DA87 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		3488D0BD29B449D80009DA87 /* TBUIGoalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBUIGoalController.swift; sourceTree = "<group>"; };
 		3488D0BF29B45F5A0009DA87 /* TBUIGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBUIGoalCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				3488D0B929B40D4F0009DA87 /* ModelData.swift */,
 				34DEF98929B180CA00F01AA9 /* EffortDomain.swift */,
 				349012CE29B8252E0095D133 /* Store.swift */,
+				34405BCA29B964760015EA28 /* DataState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				3488D0BA29B40D4F0009DA87 /* ModelData.swift in Sources */,
 				34DEF95A29B1765900F01AA9 /* AppDelegate.swift in Sources */,
 				34DEF98E29B181C400F01AA9 /* TBUIGoalObjectiveController.swift in Sources */,
+				34405BCB29B964760015EA28 /* DataState.swift in Sources */,
 				34DEF98C29B1813D00F01AA9 /* TBUITabBarController.swift in Sources */,
 				34DEF99029B1821400F01AA9 /* TBUIPlanController.swift in Sources */,
 				34DEF95C29B1765900F01AA9 /* SceneDelegate.swift in Sources */,

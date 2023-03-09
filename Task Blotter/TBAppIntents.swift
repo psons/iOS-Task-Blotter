@@ -9,25 +9,50 @@ import Foundation
 import AppIntents
 import UIKit  // needed to access UIApplication
 
+func getTBRootController() -> TBUITabBarController {
+    return (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.keyWindow?.rootViewController as! TBUITabBarController
+}
+
 struct StartTaskBlotterIntent: AppIntent {
     static var title: LocalizedStringResource = "Start Task Blotter"
-
     static var description = IntentDescription("Launches the Task Blotter App.")
-    
     static var openAppWhenRun = true
     
     @MainActor
     func perform() async throws -> some IntentResult {
         print("StartTaskBlotterIntent.perform()")
-        // downcast to my custom tabbar.
-        // set index on tab bar controller.
-        // .first because the Tab Bar controller is the first scene
-        let tbc = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.keyWindow?.rootViewController as! TBUITabBarController
-
+        let tbc = getTBRootController()
         tbc.selectedIndex = 2
-        // .tabBarController.selectedIndex = 1
-        
-        print(UIApplication.shared)
+        return .result()  //.finished
+    }
+}
+
+struct TaskBlotterDataLoad: AppIntent {
+    static var title: LocalizedStringResource = "Start Task Blotter With Test Data Load"
+    static var description = IntentDescription("Launches the Task Blotter Appand load test data.")
+    static var openAppWhenRun = true
+    
+    @MainActor
+    func perform() async throws -> some IntentResult {
+        print("StartTaskBlotterIntent.perform()")
+        let tbc = getTBRootController()
+        tbc.initDataState(dataState: .testdata)
+        tbc.selectedIndex = 2
+        return .result()  //.finished
+    }
+}
+
+struct TaskBlotterDataClear: AppIntent {
+    static var title: LocalizedStringResource = "Start Task Blotter and Clear the data"
+    static var description = IntentDescription("Launches the Task Blotter Appand load test data.")
+//    static var openAppWhenRun = true
+    
+//    @MainActor
+    func perform() async throws -> some IntentResult {
+        print("StartTaskBlotterIntent.perform()")
+//        let tbc = getTBRootController()
+//        tbc.initDataState(dataState: .clear)
+        tbc.selectedIndex = 2
         return .result()  //.finished
     }
 }
@@ -49,23 +74,20 @@ struct AddObjectiveIntent: AppIntent {
 }
 
 /**
- 
+go to the goal via nav controller so i have context
+and prove I can go past the tab bar inexes
  */
-struct ViewDefaultGoalIntent: AppIntent {   // go to the goal via nav controller so i have contect
-                                        // and prove I can go past the tab bar inexes
+struct ViewDefaultGoalIntent: AppIntent {
     static var title: LocalizedStringResource = "View the Default Goal"
-    
     static var description = IntentDescription("Views the Goal where new Objectives and Tasks will be created in the Task Blotter App")
-
     static var openAppWhenRun = true
     
     @MainActor
     func perform() async throws -> some IntentResult {
         print("ViewDefaultGoalIntent invoked")
-        let tbc = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.keyWindow?.rootViewController as! TBUITabBarController
+        let tbc = getTBRootController()
         tbc.setNavigation(navTarget: "GoalDetail")
         tbc.doNavigation()
-        
         return .result(value: "Launched to the default Goal" )
     }
     
@@ -93,6 +115,15 @@ struct TaskBlotterShortcuts: AppShortcutsProvider {
                 "View Default Goalin \(.applicationName)",
                 "View a Goal  \(.applicationName)",
                 "View my Goal \(.applicationName)"])
+        
+        AppShortcut(
+            intent: TaskBlotterDataLoad(), phrases: [
+                "Load and Persist Task Blotter Data \(.applicationName)"])
+
+        AppShortcut(
+            intent: TaskBlotterDataClear(), phrases: [
+                "Clear Persisted Task Blotter Data \(.applicationName)"])
+
     }
 }
 

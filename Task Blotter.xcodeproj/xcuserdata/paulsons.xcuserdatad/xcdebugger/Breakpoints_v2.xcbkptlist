@@ -157,30 +157,30 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "application(_:configurationForConnecting:options:)"
+            landmarkName = "application(_:handlerFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E2D9F12C-B25A-40F8-9E90-4292AD114ACC"
-            shouldBeEnabled = "No"
+            uuid = "1C983E41-B23D-4D01-9381-9D6A740D8274"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task Blotter/TBUITabBarController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "doNavigation()"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "initDataState(dataState:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB96F7EF-91D8-45E4-989E-BD56F8B94E82"
+            uuid = "D5EB1D27-F331-4CA8-AC23-0715DC485D19"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -189,120 +189,72 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "doNavigation()"
+            landmarkName = "loadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6CFCABF2-43B5-4043-9B32-9DFEDCD007D6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task Blotter/Model/Store.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "fileURL()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FAFB889D-D729-4B3D-8A2E-B282E66BAD30"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task Blotter/Model/Store.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "load(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FAFB889D-D729-4B3D-8A2E-B282E66BAD30 - 56e608932c24ecbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Task_Blotter.DomainStore.load(completion: (Swift.Result&lt;Task_Blotter.EffortDomain, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Task Blotter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulsons/dev/DePaul/iOS/csc471/due/FinalProjTaskBlotter/Task%20Blotter/Task%20Blotter/Model/Store.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "236">
-               </Location>
-               <Location
-                  uuid = "FAFB889D-D729-4B3D-8A2E-B282E66BAD30 - 1404fd3240ec8a4a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in static Task_Blotter.DomainStore.load(completion: (Swift.Result&lt;Task_Blotter.EffortDomain, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Task Blotter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulsons/dev/DePaul/iOS/csc471/due/FinalProjTaskBlotter/Task%20Blotter/Task%20Blotter/Model/Store.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "376">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "11435506-085C-420D-BCDC-69A378152A39"
+            uuid = "56D87C04-D58C-4B02-A908-CFF711BFBB4B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task Blotter/TBUITabBarController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "saveData()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "11435506-085C-420D-BCDC-69A378152A39 - d6ae6fd11c4d299c"
+                  uuid = "56D87C04-D58C-4B02-A908-CFF711BFBB4B - 5f942242e24c34b7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Task_Blotter.TBUITabBarController.viewDidLoad() -&gt; ()"
+                  symbolName = "Task_Blotter.TBUITabBarController.saveData() -&gt; ()"
                   moduleName = "Task Blotter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/paulsons/dev/DePaul/iOS/csc471/due/FinalProjTaskBlotter/Task%20Blotter/Task%20Blotter/TBUITabBarController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "272">
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "32">
                </Location>
                <Location
-                  uuid = "11435506-085C-420D-BCDC-69A378152A39 - 1e59abf55fd7b7e4"
+                  uuid = "56D87C04-D58C-4B02-A908-CFF711BFBB4B - 6cc6cfc79e112d91"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Task_Blotter.EffortDomain, Swift.Error&gt;) -&gt; () in Task_Blotter.TBUITabBarController.viewDidLoad() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Int, Swift.Error&gt;) -&gt; () in Task_Blotter.TBUITabBarController.saveData() -&gt; ()"
                   moduleName = "Task Blotter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/paulsons/dev/DePaul/iOS/csc471/due/FinalProjTaskBlotter/Task%20Blotter/Task%20Blotter/TBUITabBarController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "76">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DB39776-4766-48C2-9CF9-A577B7B719F0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Task Blotter/TBUITabBarController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "saveData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

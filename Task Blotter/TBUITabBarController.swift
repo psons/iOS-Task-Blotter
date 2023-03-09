@@ -9,28 +9,14 @@ import UIKit
 
 class TBUITabBarController: UITabBarController {
     var navTarget: String = "none"
-    var effortDomainAppState = dummyDataEffortDomainAppState
+    var effortDomainAppState =  EffortDomainAppState(effortDomain: EffortDomain(name: "Users Endeavors") , appState: AppState())
         
     override func viewDidLoad() {
         print("TBUITabBarController.viewDidLoad()")        
         super.viewDidLoad()
         // self.intializeEffortDomainDefaults()  will need to load some data here at some point.
         
-       // firt time test
-//        DomainStore.save(domain: dummyDataEffortDomainAppState.effortDomain) { result in
-//            if case .failure(let error) = result {
-//                fatalError(error.localizedDescription)
-//            }
-//        }
-       DomainStore.load { result in
-           switch result {
-           case .failure(let error):
-               fatalError(error.localizedDescription)
-           case .success(let domainData):
-               self.effortDomainAppState.effortDomain = domainData
-           }
-       }
-
+        initDataState(dataState: .normal)
         
     }
     
@@ -54,6 +40,46 @@ class TBUITabBarController: UITabBarController {
             return
         }
     }
+    
+    func loadData() {
+        DomainStore.load { result in
+            switch result {
+            case .failure(let error):
+                fatalError(error.localizedDescription)
+            case .success(let domainData):
+                self.effortDomainAppState.effortDomain = domainData
+            }
+        }
+    }
+
+    func saveData() {
+        DomainStore.save(domain: self.effortDomainAppState.effortDomain) { result in
+            if case .failure(let error) = result {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
+    func emptyData() -> EffortDomainAppState {
+        return EffortDomainAppState(effortDomain: EffortDomain(name: "Users Endeavors") , appState: AppState())
+    }
+    
+    func initDataState(dataState: DataState) {
+        switch dataState {
+        case .clear: // this is really dangerous for a real app.  Disable this after some testing.
+            effortDomainAppState =  emptyData()
+            saveData()
+            fallthrough
+        case .testdata: // this is really dangerous for a real app.  Disable this after some testing.
+            effortDomainAppState = dummyDataEffortDomainAppState
+            saveData()
+            fallthrough
+        case .normal:
+            loadData()
+        }
+        
+    }
+
     
     func setNavigation(navTarget: String) {
         self.navTarget = navTarget
