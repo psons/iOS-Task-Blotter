@@ -61,31 +61,31 @@ class TBUIGoalObjectiveController: UIViewController {
         // todo calling controller should set AppState "currentGSlot" and "currentOSlot"
         //        self.storyListingTV.text = useEffortDomainAppStateRef().currentGoal.objectiveStrings()
         self.storyListingTV.text = self.localGoal.name
-        self.userActivity = donateAddObjectiveActivity()
+//        self.userActivity = donateAddObjectiveActivity()
         self.userActivity?.becomeCurrent()
     }
     
     
-    func donateAddObjectiveActivity() -> NSUserActivity {
-        let addObjectiveActivity = NSUserActivity(activityType: newActivityTypeADDObjective)
-        addObjectiveActivity.persistentIdentifier =
-          NSUserActivityPersistentIdentifier(newActivityTypeADDObjective)
-
-        addObjectiveActivity.isEligibleForSearch = true
-        addObjectiveActivity.isEligibleForPrediction = true
-        addObjectiveActivity.title = "Add an Objective"
-        addObjectiveActivity.suggestedInvocationPhrase = "Blotter new Objective"
-
-        // See https://docs.google.com/document/d/1fs4SBer2XYgen4w8QxEg5uWwAG06SSVhimdxR02Kd_s/edit?usp=sharing
-        let attributeSet = CSSearchableItemAttributeSet(contentType: UTType.png )
-        attributeSet.contentDescription = "Goal Pursuit!"
-        attributeSet.thumbnailData = UIImage(named: "logo")?.pngData()
-        //attributeSet.thumbnailData = thumbnail?.jpegData(compressionQuality: 1.0)
-        attributeSet.contentDescription = "An Objective will be achieved with a collection of tasks."
-
-        addObjectiveActivity.contentAttributeSet = attributeSet
-        return addObjectiveActivity
-    }
+//    func donateAddObjectiveActivity() -> NSUserActivity {
+//        let addObjectiveActivity = NSUserActivity(activityType: newActivityTypeADDObjective)
+//        addObjectiveActivity.persistentIdentifier =
+//          NSUserActivityPersistentIdentifier(newActivityTypeADDObjective)
+//
+//        addObjectiveActivity.isEligibleForSearch = true
+//        addObjectiveActivity.isEligibleForPrediction = true
+//        addObjectiveActivity.title = "Add an Objective"
+//        addObjectiveActivity.suggestedInvocationPhrase = "Blotter new Objective"
+//
+//        // See https://docs.google.com/document/d/1fs4SBer2XYgen4w8QxEg5uWwAG06SSVhimdxR02Kd_s/edit?usp=sharing
+//        let attributeSet = CSSearchableItemAttributeSet(contentType: UTType.png )
+//        attributeSet.contentDescription = "Goal Pursuit!"
+//        attributeSet.thumbnailData = UIImage(named: "logo")?.pngData()
+//        //attributeSet.thumbnailData = thumbnail?.jpegData(compressionQuality: 1.0)
+//        attributeSet.contentDescription = "An Objective will be achieved with a collection of tasks."
+//
+//        addObjectiveActivity.contentAttributeSet = attributeSet
+//        return addObjectiveActivity
+//    }
     
     /**
      todo Programatically add a space for a user to add an Objective
