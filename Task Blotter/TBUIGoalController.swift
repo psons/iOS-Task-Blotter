@@ -18,14 +18,26 @@ class TBUIGoalControllerViewController: UIViewController, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.goals = useEffortDomainAppStateRef().effortDomain.goals
+        let parentTBC = useParentTBC()
+        self.goals = parentTBC.domainStore.domain.goals
         print("TBUIGoalControllerViewController.viewDidLoad()")
         goalListingTableView.delegate = self
         goalListingTableView.dataSource = self
     }
     
+    /**
+     TBUITabBarController.viewDidLoad()
+     TBUITabBarController self.effortDomainAppState: 0x000060000297af00
+     TBUIGoalControllerViewController.viewDidLoad()
+     TBUIGoalControllerViewController edas: 0x000060000297af00
+     */
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.domainNameLabel.text = useEffortDomainAppStateRef().effortDomain.name
+        let domain = useParentTBC().domainStore.domain
+//        print("TBUIGoalControllerViewController edas: \(Unmanaged.passUnretained(edas).toOpaque())")
+//        useParentTBC().loadData(domainInOutRef: &edas.effortDomain)
+        self.goals = domain.goals
+        self.domainNameLabel.text = domain.name
     }
     
     // This will be common to my TabBarController children, so maybe a base class?
@@ -44,7 +56,8 @@ class TBUIGoalControllerViewController: UIViewController, UITableViewDataSource,
      access the data and application state from the root controller.
      */
     func useEffortDomainAppStateRef() -> EffortDomainAppState {
-        return self.useParentTBC().effortDomainAppState
+        let tbc = self.useParentTBC()
+        return tbc.effortDomainAppState!
     }
 
     

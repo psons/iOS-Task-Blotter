@@ -165,27 +165,27 @@ class EffortDomainAppState: Codable, CustomStringConvertible {
     var effortDomain = EffortDomain(name:"un specified name")
     var appState = AppState()
     
-    /**
-     Initialize the with the EffortDomain, and use the default appState of 0, 0
-     */
-    init(effortDomain: EffortDomain) {
-        
-        // appState handled by initializer
-        self.effortDomain = effortDomain
+//    /**
+//     Initialize the with the EffortDomain, and use the default appState of 0, 0
+//     */
+//    init(effortDomain: inout EffortDomain) {
+//
+//        // appState handled by initializer
+//        self.effortDomain = effortDomain
+//
+//        // make sure there is a current goal or default Goal
+//        if !self.effortDomain.goals.indices.contains(self.appState.currentGSlot){
+//            print("Error in EffortDomainAppState.init().   EffortDomain is supposed to always have a default goal")
+//        }
+//        // now can use self.currentGoal
+//
+//        if !self.currentGoal.objectives.indices.contains(Goal.defaultOslot) {
+//            self.currentGoal.objectives[Goal.defaultOslot] = Objective(name: "default objective")
+//        }
+//
+//    }
 
-        // make sure there is a current goal or default Goal
-        if !self.effortDomain.goals.indices.contains(self.appState.currentGSlot){
-            print("Error in EffortDomainAppState.init().   EffortDomain is supposed to always have a default goal")
-        }
-        // now can use self.currentGoal
-
-        if !self.currentGoal.objectives.indices.contains(Goal.defaultOslot) {
-            self.currentGoal.objectives[Goal.defaultOslot] = Objective(name: "default objective")
-        }
-        
-    }
-
-    init(effortDomain: EffortDomain, appState: AppState) {
+    init(effortDomain: inout EffortDomain, appState: inout AppState) {
         self.effortDomain = effortDomain
         self.appState = appState
         

@@ -389,7 +389,7 @@ var effortDomainJsonString =
     }
     """
 let effortDomainData = effortDomainJsonString.data(using: .utf8)!
-let effortDomain: EffortDomain  = try! JSONDecoder().decode(EffortDomain.self, from: effortDomainData)
+var testEffortDomain: EffortDomain  = try! JSONDecoder().decode(EffortDomain.self, from: effortDomainData)
 //print(effortDomain)
 
 let appStateJsonString =
@@ -402,4 +402,4 @@ let appStateJsonString =
 let appStateData = appStateJsonString.data(using: .utf8)!
 let appState: AppState = try! JSONDecoder().decode(AppState.self, from: appStateData)
 
-let dummyDataEffortDomainAppState = EffortDomainAppState(effortDomain: effortDomain, appState: appState)
+//let dummyDataEffortDomainAppState = EffortDomainAppState(effortDomain: &effortDomain, appState: &appState)

@@ -34,25 +34,32 @@ struct TaskBlotterDataLoad: AppIntent {
     
     @MainActor
     func perform() async throws -> some IntentResult {
-        print("StartTaskBlotterIntent.perform()")
+        print("TaskBlotterDataLoad.perform()")
         let tbc = getTBRootController()
         tbc.initDataState(dataState: .testdata)
         tbc.selectedIndex = 2
+        print("TaskBlotterDataLoad tbc.effortDomainAppState!: \(Unmanaged.passUnretained(tbc.effortDomainAppState!).toOpaque())")
         return .result()  //.finished
     }
 }
 
+/**
+ This intent demnstrates that the data store can be cleared by calling into the bundle from a shortcut without
+ loading the viewcontrollers.
+ It saves an empty default Effort Domain via the DomainStore class.
+ */
 struct TaskBlotterDataClear: AppIntent {
     static var title: LocalizedStringResource = "Start Task Blotter and Clear the data"
     static var description = IntentDescription("Launches the Task Blotter Appand load test data.")
-//    static var openAppWhenRun = true
+    static var openAppWhenRun = false  // <---- Won't launch app, load ViewControllers.
     
-//    @MainActor
     func perform() async throws -> some IntentResult {
-        print("StartTaskBlotterIntent.perform()")
-//        let tbc = getTBRootController()
-//        tbc.initDataState(dataState: .clear)
-        tbc.selectedIndex = 2
+        print("TaskBlotterDataClear.perform()")
+        DomainStore.save(domain: DomainStore().domain ) { result in
+            if case .failure(let error) = result {
+                fatalError(error.localizedDescription)
+            }
+        }
         return .result()  //.finished
     }
 }

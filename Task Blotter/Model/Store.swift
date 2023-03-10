@@ -8,7 +8,14 @@
 import Foundation
     
 class DomainStore {
-    var domain: EffortDomain = EffortDomain(name: "default")
+    var domain: EffortDomain
+    init(domain: EffortDomain) {
+        self.domain = domain
+    }
+    
+    init(name: String = "default") {
+        self.domain = EffortDomain(name: name)
+    }
     
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,
@@ -39,7 +46,9 @@ class DomainStore {
             }
         }
     }
-    
+    /**
+     Thinking why this should be static:  the caller may go out of scope while the async save is happening.
+     */
     static func save(domain: EffortDomain, completion: @escaping (Result<Int, Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
             do {

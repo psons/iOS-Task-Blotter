@@ -47,7 +47,7 @@ class TBUIGoalObjectiveController: UIViewController {
             access the data and application state from the root controller.
      */
     func useEffortDomainAppStateRef() -> EffortDomainAppState {
-        return self.useParentTBC().effortDomainAppState
+        return self.useParentTBC().effortDomainAppState!
     }
     
     // Gets a reference from the parent tabBarController to keep track of user position in the app asneeded for Siri Intens ad NSUserActivities
