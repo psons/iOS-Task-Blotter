@@ -17,8 +17,5 @@ class TBUIGoalListingTableView: UITableView {
         // Drawing code
     }
     */
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // Method does not override any method from its superclass
-//        self.performSegue(withIdentifier: "ShowGoalDetail", sender: self) // Value of type 'TBUIGoalListingTableView' has no member 'performSegue'
-//
-//    }
+
 }

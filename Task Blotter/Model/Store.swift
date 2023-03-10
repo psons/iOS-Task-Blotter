@@ -25,6 +25,15 @@ class DomainStore {
             .appendingPathComponent("domain.json")
     }
     
+
+    func saveData(domainRef: EffortDomain) {
+        DomainStore.save(domain: domainRef) { result in
+            if case .failure(let error) = result {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
     static func load(completion: @escaping (Result<EffortDomain, Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
             do {

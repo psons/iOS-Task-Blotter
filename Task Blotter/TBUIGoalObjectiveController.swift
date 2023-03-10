@@ -17,6 +17,7 @@ import UniformTypeIdentifiers
 
 public let newActivityTypeADDObjective = "net.psons.Task-Blotter-Base.add-objective"
 
+// likely replace this with somthing like TBUIGOController
 class TBUIGoalObjectiveController: UIViewController {
     
     var localGoal = Goal(name: "UNKNOWN")

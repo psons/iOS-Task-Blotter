@@ -27,18 +27,15 @@ struct StartTaskBlotterIntent: AppIntent {
     }
 }
 
-struct TaskBlotterDataLoad: AppIntent {
-    static var title: LocalizedStringResource = "Start Task Blotter With Test Data Load"
-    static var description = IntentDescription("Launches the Task Blotter Appand load test data.")
-    static var openAppWhenRun = true
+struct TaskBlotterTestDataSetup: AppIntent {
+    static var title: LocalizedStringResource = "Set up Task Blotter Test Data"
+    static var description = IntentDescription("Sets up saved test data for the next Task Blotter run")
+    static var openAppWhenRun = false  // <---- Won't launch app, or load ViewControllers.
     
-    @MainActor
     func perform() async throws -> some IntentResult {
-        print("TaskBlotterDataLoad.perform()")
-        let tbc = getTBRootController()
-        tbc.initDataState(dataState: .testdata)
-        tbc.selectedIndex = 2
-        print("TaskBlotterDataLoad tbc.effortDomainAppState!: \(Unmanaged.passUnretained(tbc.effortDomainAppState!).toOpaque())")
+        print("TaskBlotterTestDataSetup.perform()")
+        let domainStore = DomainStore()
+        domainStore.saveData(domainRef: testEffortDomain)
         return .result()  //.finished
     }
 }
@@ -48,13 +45,13 @@ struct TaskBlotterDataLoad: AppIntent {
  loading the viewcontrollers.
  It saves an empty default Effort Domain via the DomainStore class.
  */
-struct TaskBlotterDataClear: AppIntent {
-    static var title: LocalizedStringResource = "Start Task Blotter and Clear the data"
-    static var description = IntentDescription("Launches the Task Blotter Appand load test data.")
-    static var openAppWhenRun = false  // <---- Won't launch app, load ViewControllers.
+struct TaskBlotterClearData: AppIntent {
+    static var title: LocalizedStringResource = "Clear Task Blotter Data"
+    static var description = IntentDescription("Clears the saved data for the next Task Blotter run.")
+    static var openAppWhenRun = false  // <---- Won't launch app, or load ViewControllers.
     
     func perform() async throws -> some IntentResult {
-        print("TaskBlotterDataClear.perform()")
+        print("TaskBlotterClearData.perform()")
         DomainStore.save(domain: DomainStore().domain ) { result in
             if case .failure(let error) = result {
                 fatalError(error.localizedDescription)
@@ -124,11 +121,11 @@ struct TaskBlotterShortcuts: AppShortcutsProvider {
                 "View my Goal \(.applicationName)"])
         
         AppShortcut(
-            intent: TaskBlotterDataLoad(), phrases: [
+            intent: TaskBlotterTestDataSetup(), phrases: [
                 "Load and Persist Task Blotter Data \(.applicationName)"])
 
         AppShortcut(
-            intent: TaskBlotterDataClear(), phrases: [
+            intent: TaskBlotterClearData(), phrases: [
                 "Clear Persisted Task Blotter Data \(.applicationName)"])
 
     }

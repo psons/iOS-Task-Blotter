@@ -11,6 +11,7 @@
 		3488D0BA29B40D4F0009DA87 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488D0B929B40D4F0009DA87 /* ModelData.swift */; };
 		3488D0BE29B449D80009DA87 /* TBUIGoalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488D0BD29B449D80009DA87 /* TBUIGoalController.swift */; };
 		3488D0C029B45F5A0009DA87 /* TBUIGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488D0BF29B45F5A0009DA87 /* TBUIGoalCell.swift */; };
+		3488E3D129BBCD9D00FFBB7C /* TBUIGOController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488E3D029BBCD9D00FFBB7C /* TBUIGOController.swift */; };
 		349012CF29B8252E0095D133 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349012CE29B8252E0095D133 /* Store.swift */; };
 		34DD74CD29B63CFE0034DC50 /* TBUIGoalListingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DD74CC29B63CFE0034DC50 /* TBUIGoalListingTableView.swift */; };
 		34DEF95A29B1765900F01AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DEF95929B1765900F01AA9 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		3488D0B929B40D4F0009DA87 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		3488D0BD29B449D80009DA87 /* TBUIGoalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBUIGoalController.swift; sourceTree = "<group>"; };
 		3488D0BF29B45F5A0009DA87 /* TBUIGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBUIGoalCell.swift; sourceTree = "<group>"; };
+		3488E3D029BBCD9D00FFBB7C /* TBUIGOController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBUIGOController.swift; sourceTree = "<group>"; };
 		349012CE29B8252E0095D133 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		34DD74CC29B63CFE0034DC50 /* TBUIGoalListingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBUIGoalListingTableView.swift; sourceTree = "<group>"; };
 		34DEF95629B1765900F01AA9 /* Task Blotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Blotter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				34DEF95B29B1765900F01AA9 /* SceneDelegate.swift */,
 				34DEF95D29B1765900F01AA9 /* ViewController.swift */,
 				34DEF95F29B1765900F01AA9 /* Main.storyboard */,
+				3488E3D029BBCD9D00FFBB7C /* TBUIGOController.swift */,
 				34DEF98B29B1813D00F01AA9 /* TBUITabBarController.swift */,
 				34DEF98D29B181C400F01AA9 /* TBUIGoalObjectiveController.swift */,
 				3488D0BD29B449D80009DA87 /* TBUIGoalController.swift */,
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3488D0C029B45F5A0009DA87 /* TBUIGoalCell.swift in Sources */,
+				3488E3D129BBCD9D00FFBB7C /* TBUIGOController.swift in Sources */,
 				34DD74CD29B63CFE0034DC50 /* TBUIGoalListingTableView.swift in Sources */,
 				3488D0BE29B449D80009DA87 /* TBUIGoalController.swift in Sources */,
 				34DEF95E29B1765900F01AA9 /* ViewController.swift in Sources */,

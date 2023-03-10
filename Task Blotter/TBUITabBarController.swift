@@ -37,13 +37,14 @@ class TBUITabBarController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("TBUITabBarController.viewWillAppear()")
         doNavigation()
     }
     
     func doNavigation() {
         if self.navTarget == "GoalDetail" {
             print("TBUITabBarController wil do doNavigation() to \(self.navTarget)")
-            let goalNav = self.viewControllers?[2] as! UINavigationController
+            let goalNav = self.viewControllers?[2] as! UINavigationController // hard coded 2 is the position of this controller in the tab index.
 
             let goalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "goal")
             // todo: build up a list of controllers here for deeper navigation cases.like [goalVC, goalObjectiveVC]
@@ -94,7 +95,7 @@ class TBUITabBarController: UITabBarController {
         switch dataState {
             // don't need this .   clear should be a separate shortcut.
         case .clear: // this is really dangerous for a real app.  Disable this after some testing.
-            print("The .clear case shouldn't ne used in the TBUITabBarController")
+            print("The .clear case shouldn't nef used in the TBUITabBarController")
 //            self.domainStore =  DomainStore()
 //            saveData(domainRef: self.domainStore.domain)
 //            self.effortDomainAppState = EffortDomainAppState(effortDomain: &self.domainStore.domain,
