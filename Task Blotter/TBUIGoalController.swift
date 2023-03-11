@@ -71,6 +71,7 @@ class TBUIGoalControllerViewController: UIViewController, UITableViewDataSource,
             if let indexPath = self.goalListingTableview.indexPathForSelectedRow {
                 let goal = goals[indexPath.row]
                 detail.localGoal = goal
+                detail.goalRank = indexPath.row
             }
         }
     }

@@ -7,15 +7,25 @@
 
 import UIKit
 
+// Color associated with Objective Things: A4C4FF = Bluish
+// Background Color associated with Goal Things: B29EFF = Purplish
+//  darker text against white: 5F5488 = darker purpleish
+// Cell Identifier: "ObjectiveCell"
+
 class TBUIGOController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     var objectives: [Objective] = []
     var localGoal = Goal(name: "UNKNOWN Goal name")
+    var goalRank = -1
 
     @IBOutlet weak var objectiveListingTableView: UITableView!
-    // Color associated with Objective Things: A4C4FF = Bluish
-    // Color associated with Goal Things: B29EFF = Purplish
-    // Cell Identifier: "ObjectiveCell"
+    @IBOutlet weak var goalNameTV: UITextView!
+    @IBOutlet weak var goalRankTF: UITextField!
+    @IBOutlet weak var maxObjectiveStepper: UIStepper!
+    @IBOutlet weak var maxObjectiveTF: UITextField!
+    @IBOutlet weak var createObjectiveButton: UIButton!
+    @IBOutlet weak var defaultGoalButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Goal + Objectives"
@@ -27,6 +37,11 @@ class TBUIGOController: UIViewController, UITableViewDataSource, UITableViewDele
     
     override func viewWillAppear(_ animated: Bool) {
         self.objectives = localGoal.objectives
+        self.goalNameTV.text = self.localGoal.name
+        
+        let rankAsStr = String(self.goalRank + 1 ) // user sees rank as counting number, not array index.
+        self.goalRankTF.text = rankAsStr
+
     }
 
 
