@@ -67,7 +67,7 @@ class TBUIGoalControllerViewController: UIViewController, UITableViewDataSource,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if let detail = segue.destination as? TBUIGoalObjectiveController {
+        if let detail = segue.destination as? TBUIGOController /*TBUIGoalObjectiveController*/ {
             if let indexPath = self.goalListingTableview.indexPathForSelectedRow {
                 let goal = goals[indexPath.row]
                 detail.localGoal = goal
